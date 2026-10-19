@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>제주특별자치도 빅데이터 포털 | 인구현황 및 출생 통계 대시보드</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Web Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&amp;family=Public+Sans:wght@500;600;700;800&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim as required -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "primary-fixed": "#dae2fd",
+            "on-primary": "#ffffff",
+            "on-tertiary-container": "#da5e00",
+            "surface": "#f8f9ff",
+            "tertiary-fixed": "#ffdbcb",
+            "surface-bright": "#f8f9ff",
+            "secondary-fixed-dim": "#93ccff",
+            "on-tertiary-fixed": "#341100",
+            "surface-container-high": "#dce9ff",
+            "tertiary-fixed-dim": "#ffb691",
+            "secondary": "#006398",
+            "surface-dim": "#cbdbf5",
+            "surface-container-low": "#eff4ff",
+            "outline": "#76777d",
+            "on-surface-variant": "#45464d",
+            "on-primary-container": "#7c839b",
+            "on-primary-fixed-variant": "#3f465c",
+            "surface-tint": "#565e74",
+            "on-background": "#0b1c30",
+            "on-secondary-fixed-variant": "#004b73",
+            "surface-container-lowest": "#ffffff",
+            "primary": "#000000",
+            "surface-container-highest": "#d3e4fe",
+            "on-error-container": "#93000a",
+            "on-surface": "#0b1c30",
+            "tertiary": "#000000",
+            "on-primary-fixed": "#131b2e",
+            "inverse-primary": "#bec6e0",
+            "outline-variant": "#c6c6cd",
+            "on-error": "#ffffff",
+            "secondary-container": "#5bb8fe",
+            "background": "#f8f9ff",
+            "inverse-on-surface": "#eaf1ff",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#341100",
+            "on-secondary-fixed": "#001d31",
+            "on-tertiary-fixed-variant": "#793100",
+            "inverse-surface": "#213145",
+            "surface-variant": "#d3e4fe",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#cce5ff",
+            "surface-container": "#e5eeff",
+            "on-secondary": "#ffffff",
+            "primary-container": "#131b2e",
+            "primary-fixed-dim": "#bec6e0",
+            "on-secondary-container": "#00476e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "margin-lg": "2rem",
+            "space-xs": "0.25rem",
+            "margin": "1rem",
+            "space-xl": "1.5rem",
+            "gutter-lg": "1.5rem",
+            "gutter": "1rem",
+            "space-md": "0.75rem",
+            "margin-md": "1.5rem",
+            "space-lg": "1rem",
+            "gutter-md": "1.25rem"
+          },
+          "fontFamily": {
+            "data-tabular": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "headline-xl": ["Public Sans", "Noto Sans KR", "sans-serif"],
+            "headline-xl-mobile": ["Public Sans", "Noto Sans KR", "sans-serif"],
+            "title-sm": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "label-md": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "headline-lg": ["Public Sans", "Noto Sans KR", "sans-serif"],
+            "label-sm": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "metric-display": ["Public Sans", "Noto Sans KR", "sans-serif"],
+            "body-sm": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "body-md": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "headline-md": ["Public Sans", "Noto Sans KR", "sans-serif"]
+          },
+          "fontSize": {
+            "data-tabular": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "title-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+            "metric-display": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.025em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+      background-color: #f8f9ff;
+      color: #0b1c30;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"><div id="site-pager" style="position:sticky;top:0;z-index:9999;background:#2a4b8d;"><div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:8px 16px;flex-wrap:wrap;"><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:.02em;">제주 인구·출생 통계 대시보드</span><span style="color:rgba(255,255,255,.4)">|</span><div style="display:flex;gap:6px;flex-wrap:wrap;"><a href="page1.html" class="px-3 py-1.5 rounded-full text-white/85 hover:bg-white/20 hover:text-white font-medium text-sm transition-colors">1. 종합 개요</a><a href="page2.html" class="px-3 py-1.5 rounded-full text-white/85 hover:bg-white/20 hover:text-white font-medium text-sm transition-colors">2. 권역별 출산율</a><span class="px-3 py-1.5 rounded-full bg-white text-[#2a4b8d] font-bold text-sm shadow-sm">3. 피라미드 변천</span><a href="page4.html" class="px-3 py-1.5 rounded-full text-white/85 hover:bg-white/20 hover:text-white font-medium text-sm transition-colors">4. 상세 레지스트리</a></div></div></div>
+<!-- TOP APP BAR (Shared Component: TopNavBar execution) -->
+<header class="w-full px-6 py-3 flex items-center justify-between border-b border-outline-variant bg-surface-container-lowest docked full-width top-0 z-50 shadow-sm">
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-xl bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-secondary-container" data-icon="volcano">volcano</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">제주특별자치도 빅데이터 포털</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold">2024년 10월 확정치</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">인구동향 및 출생·출산 통계 통합 관리체계</p>
+</div>
+</div>
+<!-- Top Navigation Tabs (Exact Strings from JSON Blueprint) -->
+<nav class="hidden xl:flex items-center space-x-5 ml-4">
+<a class="border-b-2 border-secondary text-secondary font-semibold pb-1 font-body-md text-body-md" href="#overview">Overview</a>
+<a class="text-on-surface-variant font-medium hover:text-on-surface pb-1 font-body-md text-body-md transition-colors" href="#demographics">Demographics</a>
+<a class="text-on-surface-variant font-medium hover:text-on-surface pb-1 font-body-md text-body-md transition-colors" href="#migration">Migration</a>
+<a class="text-on-surface-variant font-medium hover:text-on-surface pb-1 font-body-md text-body-md transition-colors" href="#projections">Projections</a>
+<a class="text-on-surface-variant font-medium hover:text-on-surface pb-1 font-body-md text-body-md transition-colors" href="#opendata">Open Data</a>
+</nav>
+</div>
+<!-- Administrative Filters & User Trigger Actions -->
+<div class="flex items-center space-x-3">
+<!-- Fast Filter Ribbon -->
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 border border-outline-variant space-x-1">
+<div class="flex items-center px-2 py-1 bg-surface-container-lowest rounded shadow-xs border border-outline-variant/60">
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-1.5 font-medium">기준연도</span>
+<select class="bg-transparent font-data-tabular text-data-tabular font-bold text-on-surface border-none p-0 pr-4 focus:ring-0 cursor-pointer">
+<option>2024년</option>
+<option>2023년</option>
+<option>2022년</option>
+</select>
+</div>
+<div class="flex items-center px-2 py-1 bg-surface-container-lowest rounded shadow-xs border border-outline-variant/60">
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-1.5 font-medium">기준월</span>
+<select class="bg-transparent font-data-tabular text-data-tabular font-bold text-on-surface border-none p-0 pr-4 focus:ring-0 cursor-pointer">
+<option>10월 (확정치)</option>
+<option>09월</option>
+<option>08월</option>
+</select>
+</div>
+<div class="flex items-center px-2 py-1 bg-surface-container-lowest rounded shadow-xs border border-outline-variant/60">
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-1.5 font-medium">관할구역</span>
+<select class="bg-transparent font-data-tabular text-data-tabular font-bold text-secondary border-none p-0 pr-4 focus:ring-0 cursor-pointer font-bold">
+<option>제주특별자치도 전체</option>
+<option>제주시 (동·읍·면)</option>
+<option>서귀포시 (동·읍·면)</option>
+</select>
+</div>
+</div>
+<!-- Action: Export Report Button (from TopNavBar blueprint) -->
+<button class="flex items-center space-x-1.5 bg-primary-container text-on-primary font-label-md text-label-md px-3.5 py-2 rounded-lg hover:bg-on-background transition-colors active:scale-95 shadow-xs">
+<span class="material-symbols-outlined text-sm" data-icon="file_download">file_download</span>
+<span class="">Export Report</span>
+</button>
+<!-- Trailing Action Icons -->
+<div class="flex items-center border-l border-outline-variant/70 pl-3 space-x-1">
+<button class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors relative" title="공지 및 알림">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-on-tertiary-container rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="통계 정의 안내">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+<!-- Administrator Profile Capsule -->
+<div class="flex items-center pl-2 space-x-2 border-l border-outline-variant/70">
+<img class="w-8 h-8 rounded-full border border-secondary object-cover" data-alt="A clean, professional administrative headshot portrait of a municipal researcher in an office setting with crisp, bright lighting, representing the civil service authority of Jeju Special Province with high clarity and calm posture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdHx0ZouFWFXKF9OicHqkj5159s4jxrLOW5Iby_N2XJB22zq-_DdUAvCnEuHnKVViWka8tOU5W3uoBteaduJpQGtkKXTQfmXYuL0R7J4hFUoQi7LeADFuSdgtB7LHvIHTUDNNBDo2O2EC8N9gn9jVCOT-lmgcdVaUJ1uLMGpTkwn6Dpdlc8F1kzdwahKzg0pz3E6PqhN-W6YR_Uuuq66ucovpfmNGL8PXwVUOoSqbN_e-Q4ahHgF6G_A"/>
+<div class="text-left hidden lg:block">
+<div class="font-label-md text-label-md text-on-surface leading-tight font-bold">김태헌 주무관</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant leading-tight">정책기획관 통계빅데이터팀</div>
+</div>
+</div>
+</div>
+</header>
+<!-- BODY CONTENT AREA: Sub-navigation & 12-column Canvas -->
+<div class="flex-1 flex overflow-hidden">
+<!-- SUB-NAV RAIL (Shared Component: SideNavBar execution) -->
+<aside class="w-64 bg-surface border-r border-outline-variant flex flex-col justify-between p-4 flex-shrink-0">
+<div>
+<div class="flex items-center space-x-3 px-2 py-3 mb-3 border-b border-outline-variant/60">
+<div class="w-8 h-8 rounded bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-base" data-icon="assured_workload">assured_workload</span>
+</div>
+<div>
+<h2 class="font-title-sm text-title-sm font-bold text-on-surface leading-snug">Jeju Special Province</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Statistics &amp; Policy Division</p>
+</div>
+</div>
+<nav class="space-y-1">
+<!-- Active Nav Item -->
+<a class="flex items-center space-x-3 bg-secondary-fixed text-on-secondary-fixed font-semibold rounded-lg px-3 py-2.5 transition-colors" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="dashboard" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-md text-label-md">Jeju Overview</span>
+</a>
+<a class="flex items-center space-x-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg px-3 py-2.5 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-md text-label-md">Administrative Districts</span>
+</a>
+<a class="flex items-center space-x-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg px-3 py-2.5 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-label-md text-label-md">Age Pyramids</span>
+</a>
+<a class="flex items-center space-x-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg px-3 py-2.5 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="vital_signs">vital_signs</span>
+<span class="font-label-md text-label-md">Vital Statistics</span>
+</a>
+<a class="flex items-center space-x-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg px-3 py-2.5 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="table_chart">table_chart</span>
+<span class="font-label-md text-label-md">Raw Registries</span>
+</a>
+</nav>
+<!-- Contextual Filter / Info Callout -->
+<div class="mt-6 p-3 bg-surface-container-low rounded-lg border border-outline-variant/60">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-secondary font-bold">인구지표 브리프</span>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="info">info</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            서귀포시 대정읍 영어교육도시 전입 가속화로 인구 순유입세 반등 기록.
+          </p>
+</div>
+</div>
+<!-- Footer Action & Nav in Sidebar -->
+<div class="space-y-3 pt-3 border-t border-outline-variant">
+<button class="w-full py-2 bg-on-tertiary-container text-on-tertiary font-label-md text-label-md rounded-lg flex items-center justify-center space-x-2 shadow-xs hover:opacity-95 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="cloud_download">cloud_download</span>
+<span class="">Download Dataset</span>
+</button>
+<div class="space-y-0.5">
+<a class="flex items-center space-x-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg px-3 py-1.5 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-base" data-icon="settings">settings</span>
+<span class="">Settings</span>
+</a>
+<a class="flex items-center space-x-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg px-3 py-1.5 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-base" data-icon="menu_book">menu_book</span>
+<span class="">Documentation</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- MAIN DASHBOARD CANVAS (12 Column Flow) -->
+<main class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- Breadcrumbs & Dashboard Page Title Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-outline-variant/40">
+<div>
+<div class="flex items-center space-x-2 font-label-sm text-label-sm text-on-surface-variant mb-1">
+<span class="">홈</span>
+<span class="">/</span>
+<span class="">주민등록 통계</span>
+<span class="">/</span>
+<span class="text-secondary font-semibold">인구동향 및 출생 현황</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-extrabold tracking-tight flex items-center gap-3">
+            제주특별자치도 인구현황 및 출생 통계 종합 분석
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-fixed text-on-secondary-fixed border border-secondary/20">
+              실시간 행정연계
+            </span>
+</h1>
+</div>
+<div class="flex items-center space-x-2">
+<div class="flex bg-surface-container rounded p-0.5 border border-outline-variant">
+<button class="px-3 py-1.5 font-label-md text-label-md rounded bg-surface-container-lowest text-on-surface shadow-xs font-semibold">월별 통계</button>
+<button class="px-3 py-1.5 font-label-md text-label-md rounded text-on-surface-variant hover:text-on-surface">분기별 통계</button>
+<button class="px-3 py-1.5 font-label-md text-label-md rounded text-on-surface-variant hover:text-on-surface">연간 추계</button>
+</div>
+<button class="p-2 border border-outline-variant rounded bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container hover:text-on-surface" title="인쇄 및 PDF 저장">
+<span class="material-symbols-outlined" data-icon="print">print</span>
+</button>
+<button class="p-2 border border-outline-variant rounded bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container hover:text-on-surface" title="화면 새로고침">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+<!-- 2. 핵심 지표 요약 카드 (4 KPI CARDS: 12-Column Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- KPI Card 1: 총인구 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm uppercase text-outline font-semibold">제주도 총인구 (주민등록)</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="people">people</span>
+</div>
+</div>
+<div class="font-metric-display text-metric-display text-on-surface font-extrabold tracking-tight">
+            698,421<span class="font-body-md text-body-md font-normal text-on-surface-variant ml-1">명</span>
+</div>
+<div class="mt-3 pt-3 border-t border-surface-container-highest flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">전월 대비 (2024.09)</span>
+<div class="flex items-center font-semibold text-secondary space-x-1">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="arrow_upward">arrow_upward</span>
+<span class="font-data-tabular text-data-tabular">+128명 (0.02%)</span>
+</div>
+</div>
+</div>
+<!-- KPI Card 2: 당월 출생아 수 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm uppercase text-outline font-semibold">당월 출생아 수 (10월)</span>
+<div class="w-8 h-8 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined" data-icon="child_care">child_care</span>
+</div>
+</div>
+<div class="font-metric-display text-metric-display text-on-surface font-extrabold tracking-tight">
+            312<span class="font-body-md text-body-md font-normal text-on-surface-variant ml-1">명</span>
+</div>
+<div class="mt-3 pt-3 border-t border-surface-container-highest flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">전년 동월 대비 (2023.10)</span>
+<div class="flex items-center font-semibold text-on-tertiary-container space-x-1">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="trending_up">trending_up</span>
+<span class="font-data-tabular text-data-tabular">+15명 (▲ 5.05%)</span>
+</div>
+</div>
+</div>
+<!-- KPI Card 3: 합계출산율 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm uppercase text-outline font-semibold">합계출산율 (2024년 잠정)</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="family_restroom">family_restroom</span>
+</div>
+</div>
+<div class="font-metric-display text-metric-display text-on-surface font-extrabold tracking-tight">
+            0.83<span class="font-body-md text-body-md font-normal text-on-surface-variant ml-1">명</span>
+</div>
+<div class="mt-3 pt-3 border-t border-surface-container-highest flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">전국 평균 (0.72명) 대비</span>
+<div class="flex items-center font-semibold text-secondary space-x-1">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="north_east">north_east</span>
+<span class="font-data-tabular text-data-tabular">+0.11명 상회</span>
+</div>
+</div>
+</div>
+<!-- KPI Card 4: 순이동 인구 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm uppercase text-outline font-semibold">순이동 인구 (전입-전출)</span>
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="sync_alt">sync_alt</span>
+</div>
+</div>
+<div class="font-metric-display text-metric-display text-secondary font-extrabold tracking-tight">
+            +245<span class="font-body-md text-body-md font-normal text-on-surface-variant ml-1">명</span>
+</div>
+<div class="mt-3 pt-3 border-t border-surface-container-highest flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">3개월 연속 순유출 종료</span>
+<div class="flex items-center font-semibold text-secondary space-x-1">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="check_circle">check_circle</span>
+<span class="font-label-sm text-label-sm">순유입 전환</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3 & 4. 메인 시각화 그리드 (Chart 1: 복합 차트 + Chart 2: 자연/사회 증감 델타) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- 차트 1: 출생률 및 출생아 수 현황 그래프 (7 Columns) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl border border-outline-variant p-5 shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-outline-variant/50 gap-2">
+<div>
+<div class="flex items-center space-x-2">
+<h3 class="font-title-sm text-title-sm font-bold text-on-surface">출생률 및 출생아 수 추이 (최근 12개월)</h3>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded font-bold">10월 피크 반등</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">월별 출생아 수(막대)와 합계출산율 환산 지수(선 그래프)</p>
+</div>
+<!-- Chart Legend -->
+<div class="flex items-center space-x-4 text-label-sm font-label-sm">
+<div class="flex items-center space-x-1.5">
+<span class="w-3 h-3 rounded-xs bg-secondary inline-block"></span>
+<span class="text-on-surface-variant">출생아 수 (명)</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-4 h-0.5 bg-on-tertiary-container inline-block"></span>
+<span class="text-on-surface-variant">출산율 환산치 (명)</span>
+</div>
+</div>
+</div>
+<!-- Complex Chart Canvas Representation with SVG -->
+<div class="mt-6 relative h-64 w-full">
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none text-label-sm font-label-sm text-outline">
+<div class="border-b border-dashed border-outline-variant/60 w-full flex justify-between"><span class="">400</span><span class="">1.10</span></div>
+<div class="border-b border-dashed border-outline-variant/60 w-full flex justify-between"><span class="">300</span><span class="">0.90</span></div>
+<div class="border-b border-dashed border-outline-variant/60 w-full flex justify-between"><span class="">200</span><span class="">0.70</span></div>
+<div class="border-b border-dashed border-outline-variant/60 w-full flex justify-between"><span class="">100</span><span class="">0.50</span></div>
+<div class="border-b border-outline-variant w-full flex justify-between text-on-surface font-semibold"><span class="">0</span><span class="">0.00</span></div>
+</div>
+<!-- Bar & Line Overlay Grid -->
+<div class="absolute inset-0 pt-3 pb-5 px-8 flex items-end justify-between">
+<!-- 23.11 -->
+<div class="flex flex-col items-center group relative h-full justify-end w-7">
+<div class="w-4 bg-secondary-fixed hover:bg-secondary rounded-t transition-all" style="height: 58%;"></div>
+<span class="font-data-tabular text-label-sm text-on-surface-variant mt-2">11월</span>
+</div>
+<!-- 23.12 -->
+<div class="flex flex-col items-center group relative h-full justify-end w-7">
+<div class="w-4 bg-secondary-fixed hover:bg-secondary rounded-t transition-all" style="height: 52%;"></div>
+<span class="font-data-tabular text-label-sm text-on-surface-variant mt-2">12월</span>
+</div>
+<!-- 24.01 -->
+<div class="flex flex-col items-center group relative h-full justify-end w-7">
+<div class="w-4 bg-secondary rounded-t transition-all" style="height: 78%;"></div>
+<span class="font-data-tabular text-label-sm text-on-surface-variant mt-2">1월</span>
+</div>
+<!-- 24.02 -->
+<div class="flex flex-col items-center group relative h-full justify-end w-7">
+<div class="w-4 bg-secondary-fixed hover:bg-secondary rounded-t transition-all" style="height: 64%;"></div>
+<span class="font-data-tabular text-label-sm text-on-surface-variant mt-2">2월</span>
+</div>
+<!-- 24.03 -->
+<div class="flex flex-col items-center group relative h-full justify-end w-7">
+<div class="w-4 bg-secondary-fixed hover:bg-secondary rounded-t transition-all" style="height: 68%;"></div>
+<span class="font-data-tabular text-label-sm text-on-surface-variant mt-2">3월</span>
+</div>
+<!-- 24.04 -->
+<div class="flex flex-col items-center group relative h-full justify-end w-7">
+<div class="w-4 bg-secondary-fixed hover:bg-secondary rounded-t transition-all" style="height: 60%;"></div>
+<span class="font-data-tabular text-label-sm text-on-surface-variant mt-2">4월</span>
+</div>
+<!-- 24.05 -->
+<div class="flex flex-col items-center group relative h-full justify-end w-7">
+<div class="w-4 bg-secondary-fixed hover:bg-secondary rounded-t transition-all" style="height: 65%;"></div>
+<span class="font-data-tabular text-label-sm text-on-surface-variant mt-2">5월</span>
+</div>
+<!-- 24.06 -->
+<div class="flex flex-col items-center group relative h-full justify-end w-7">
+<div class="w-4 bg-secondary-fixed hover:bg-secondary rounded-t transition-all" style="height: 56%;"></div>
+<span class="font-data-tabular text-label-sm text-on-surface-variant mt-2">6월</span>
+</div>
+<!-- 24.07 -->
+<div class="flex flex-col items-center group relative h-full justify-end w-7">
+<div class="w-4 bg-secondary-fixed hover:bg-secondary rounded-t transition-all" style="height: 62%;"></div>
+<span class="font-data-tabular text-label-sm text-on-surface-variant mt-2">7월</span>
+</div>
+<!-- 24.08 -->
+<div class="flex flex-col items-center group relative h-full justify-end w-7">
+<div class="w-4 bg-secondary-fixed hover:bg-secondary rounded-t transition-all" style="height: 59%;"></div>
+<span class="font-data-tabular text-label-sm text-on-surface-variant mt-2">8월</span>
+</div>
+<!-- 24.09 -->
+<div class="flex flex-col items-center group relative h-full justify-end w-7">
+<div class="w-4 bg-secondary-fixed hover:bg-secondary rounded-t transition-all" style="height: 67%;"></div>
+<span class="font-data-tabular text-label-sm text-on-surface-variant mt-2">9월</span>
+</div>
+<!-- 24.10 Current Active Peak -->
+<div class="flex flex-col items-center group relative h-full justify-end w-7">
+<div class="w-4 bg-secondary rounded-t relative ring-2 ring-secondary/30 transition-all" style="height: 76%;">
+<span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-on-background text-on-primary font-data-tabular text-[10px] px-1 py-0.5 rounded shadow">312명</span>
+</div>
+<span class="font-data-tabular text-label-sm font-bold text-secondary mt-2">10월</span>
+</div>
+</div>
+<!-- SVG Trend Polyline (Fertility Rate Curve) -->
+<svg class="absolute inset-0 pt-3 pb-5 px-8 w-full h-full pointer-events-none overflow-visible" preserveaspectratio="none" viewbox="0 0 1100 240">
+<path d="M 45 130 Q 140 145, 230 85 T 410 115 T 600 125 T 780 135 T 960 110 T 1055 88" fill="none" stroke="#da5e00" stroke-linecap="round" stroke-width="3"></path>
+<!-- Trend Points -->
+<circle cx="230" cy="85" fill="#ffffff" r="4.5" stroke="#da5e00" stroke-width="2.5"></circle>
+<circle cx="1055" cy="88" fill="#da5e00" r="5" stroke="#ffffff" stroke-width="2"></circle>
+</svg>
+</div>
+<!-- Bottom Metric Insights Ribbon -->
+<div class="mt-4 pt-3 border-t border-outline-variant/50 grid grid-cols-3 gap-2 text-center">
+<div class="p-2 rounded bg-surface-container-low">
+<div class="font-label-sm text-label-sm text-on-surface-variant">연간 누적 출생아</div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">2,984명</div>
+</div>
+<div class="p-2 rounded bg-surface-container-low">
+<div class="font-label-sm text-label-sm text-on-surface-variant">전년 누적 대비</div>
+<div class="font-headline-md text-headline-md font-bold text-secondary">+1.8% 증대</div>
+</div>
+<div class="p-2 rounded bg-surface-container-low">
+<div class="font-label-sm text-label-sm text-on-surface-variant">다자녀 가구 비중</div>
+<div class="font-headline-md text-headline-md font-bold text-on-tertiary-container">12.4% (전국 1위)</div>
+</div>
+</div>
+</div>
+<!-- 차트 2: 전월대비 인구 증감 추이 그래프 (5 Columns) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl border border-outline-variant p-5 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/50">
+<div>
+<h3 class="font-title-sm text-title-sm font-bold text-on-surface">인구 증감 구조 분석 (2024년)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">자연증감(출생-사망) vs 사회적 순이동(전입-전출)</p>
+</div>
+<div class="flex items-center space-x-2 text-label-sm font-label-sm">
+<span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 rounded-xs bg-secondary inline-block"></span><span class="text-on-surface-variant">순유입(+)</span></span>
+<span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 rounded-xs bg-error inline-block"></span><span class="text-on-surface-variant">순유출(-)</span></span>
+</div>
+</div>
+<!-- Delta Monthly Chart -->
+<div class="mt-4 space-y-3.5">
+<!-- 2024.10 Month -->
+<div>
+<div class="flex justify-between text-body-sm font-body-sm mb-1">
+<span class="font-semibold text-on-surface">2024년 10월</span>
+<span class="font-data-tabular text-data-tabular font-bold text-secondary">+128명 (자연 -117 / 사회 +245)</span>
+</div>
+<div class="w-full bg-surface-container-high h-4 rounded-sm flex overflow-hidden">
+<div class="bg-error/80 h-full" style="width: 25%;" title="자연감소: -117명"></div>
+<div class="bg-secondary h-full ml-auto" style="width: 55%;" title="사회적 순유입: +245명"></div>
+</div>
+</div>
+<!-- 2024.09 Month -->
+<div>
+<div class="flex justify-between text-body-sm font-body-sm mb-1">
+<span class="text-on-surface-variant">2024년 09월</span>
+<span class="font-data-tabular text-data-tabular text-error font-medium">-84명 (자연 -102 / 사회 +18)</span>
+</div>
+<div class="w-full bg-surface-container-high h-4 rounded-sm flex overflow-hidden">
+<div class="bg-error/80 h-full" style="width: 38%;"></div>
+<div class="bg-secondary/70 h-full ml-auto" style="width: 15%;"></div>
+</div>
+</div>
+<!-- 2024.08 Month -->
+<div>
+<div class="flex justify-between text-body-sm font-body-sm mb-1">
+<span class="text-on-surface-variant">2024년 08월</span>
+<span class="font-data-tabular text-data-tabular text-error font-medium">-142명 (자연 -119 / 사회 -23)</span>
+</div>
+<div class="w-full bg-surface-container-high h-4 rounded-sm flex overflow-hidden">
+<div class="bg-error/80 h-full" style="width: 48%;"></div>
+<div class="bg-error h-full" style="width: 12%;"></div>
+</div>
+</div>
+<!-- 2024.07 Month -->
+<div>
+<div class="flex justify-between text-body-sm font-body-sm mb-1">
+<span class="text-on-surface-variant">2024년 07월</span>
+<span class="font-data-tabular text-data-tabular text-error font-medium">-98명 (자연 -105 / 사회 +7)</span>
+</div>
+<div class="w-full bg-surface-container-high h-4 rounded-sm flex overflow-hidden">
+<div class="bg-error/80 h-full" style="width: 32%;"></div>
+<div class="bg-secondary/70 h-full ml-auto" style="width: 10%;"></div>
+</div>
+</div>
+<!-- 2024.06 Month -->
+<div>
+<div class="flex justify-between text-body-sm font-body-sm mb-1">
+<span class="text-on-surface-variant">2024년 06월</span>
+<span class="font-data-tabular text-data-tabular text-secondary font-medium">+42명 (자연 -128 / 사회 +170)</span>
+</div>
+<div class="w-full bg-surface-container-high h-4 rounded-sm flex overflow-hidden">
+<div class="bg-error/80 h-full" style="width: 29%;"></div>
+<div class="bg-secondary h-full ml-auto" style="width: 42%;"></div>
+</div>
+</div>
+</div>
+<!-- Net Synthesis Callout -->
+<div class="mt-6 p-3 rounded-lg bg-secondary-fixed/50 border border-secondary/20 flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-secondary text-base mt-0.5" data-icon="insights">insights</span>
+<div class="font-body-sm text-body-sm text-on-secondary-fixed">
+<strong class="font-semibold text-secondary">분석관 종합 소견:</strong> 고령화에 따른 자연감소(-117명)에도 불구하고 3040세대 가족 단위 서귀포시 교육특구 유입 및 청년 창업 인구 전입으로 순증 전환 달성.
+            </div>
+</div>
+</div>
+</section>
+<!-- 5. 메인 시각화 차트 3: 행정구역 및 지역별 출산율 비교 (12 Columns) -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-5 shadow-sm space-y-6">
+<!-- Section Header with Mode Toggle & Tabs -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between pb-4 border-b border-outline-variant/50 gap-3">
+<div>
+<div class="flex items-center space-x-2">
+<h3 class="font-title-sm text-title-sm font-bold text-on-surface">제주시 VS 서귀포시 인구 피라미드 및 구조 비교</h3>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded font-bold">행정시 심층 비교 뷰</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">2024년 10월 주민등록 기준 / 제주시(도시형 항아리구조) vs 서귀포시(초고령사회 진입 및 특구양극화) 비교</p>
+</div>
+<div class="flex flex-wrap items-center gap-2.5">
+<div class="flex border border-outline-variant rounded p-0.5 bg-surface-container-low text-label-sm font-label-sm">
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface">통합 보기 (제주도 전체)</button>
+<button class="px-2.5 py-1 bg-surface-container-lowest font-semibold rounded shadow-xs text-secondary border border-outline-variant/50">행정시 비교 뷰 (제주시 VS 서귀포시)</button>
+<button class="px-2.5 py-1 text-secondary font-semibold hover:bg-surface-container-lowest rounded transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-xs">history</span>10년 시계열(2014-2024)</button></div>
+<div class="flex border border-outline-variant rounded p-0.5 bg-surface-container-low text-label-sm font-label-sm">
+<button class="px-2.5 py-1 bg-surface-container-lowest font-semibold rounded shadow-xs text-on-surface">비율(%) 기준</button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface">인구수(명) 기준</button>
+</div>
+</div>
+</div>
+<!-- Comparative Side-by-Side Pyramids Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Left Pyramid: 제주시 (총인구 492,853명) -->
+<div class="p-4 rounded-xl bg-surface-container-low/40 border border-outline-variant/60 flex flex-col justify-between">
+<div>
+<!-- Header info for Jeju City -->
+<div class="flex items-center justify-between pb-3 mb-3 border-b border-outline-variant/50">
+<div class="flex items-center space-x-2">
+<span class="w-6 h-6 rounded-full bg-secondary text-on-secondary text-xs font-bold flex items-center justify-center">제</span>
+<div>
+<h4 class="font-title-sm text-title-sm font-bold text-on-surface">제주시 인구 피라미드</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">총인구 492,853명 (도내 70.6%)</span>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary-fixed text-on-secondary-fixed font-semibold">대도시형 항아리형</span>
+<div class="font-data-tabular text-[11px] text-on-surface-variant mt-0.5">남 246,120 / 여 246,733</div>
+</div>
+</div>
+<!-- Key Demographic Indicator Badges -->
+<div class="grid grid-cols-3 gap-2 mb-3 text-center text-xs font-data-tabular">
+<div class="bg-surface-container-lowest p-1.5 rounded border border-outline-variant/50">
+<span class="text-outline block text-[10px]">유소년 (0~14세)</span>
+<strong class="text-secondary text-sm">13.1%</strong> <span class="text-on-surface-variant text-[10px]">(64,560명)</span>
+</div>
+<div class="bg-surface-container-lowest p-1.5 rounded border border-outline-variant/50">
+<span class="text-outline block text-[10px]">생산가능 (15~64세)</span>
+<strong class="text-on-surface text-sm">70.8%</strong> <span class="text-on-surface-variant text-[10px]">(348,930명)</span>
+</div>
+<div class="bg-surface-container-lowest p-1.5 rounded border border-outline-variant/50">
+<span class="text-outline block text-[10px]">고령 (65세 이상)</span>
+<strong class="text-on-tertiary-container text-sm">16.1%</strong> <span class="text-on-surface-variant text-[10px]">(79,363명)</span>
+</div>
+</div>
+<!-- Pyramid Axis Titles -->
+<div class="flex items-center justify-between mb-2 text-label-sm font-label-sm px-1">
+<span class="text-secondary font-bold flex items-center gap-1"><span class="material-symbols-outlined text-sm">man</span> 남성 (50.0%)</span>
+<span class="text-outline text-[11px] font-semibold">연령구간</span>
+<span class="text-on-tertiary-container font-bold flex items-center gap-1">여성 (50.0%) <span class="material-symbols-outlined text-sm">woman</span></span>
+</div>
+<!-- 5-Year Age Bars Stack -->
+<div class="space-y-1 font-data-tabular text-[11px]">
+<!-- 80+ -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-medium text-[10px]">2.3%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 25%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/70 rounded py-0.5 text-[10px]">80+</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 48%;"></div>
+</div>
+<span class="text-on-tertiary-container font-medium text-[10px]">4.7%</span>
+</div>
+</div>
+<!-- 70-79 -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-medium text-[10px]">5.4%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 58%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/70 rounded py-0.5 text-[10px]">70-79</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 63%;"></div>
+</div>
+<span class="text-on-tertiary-container font-medium text-[10px]">6.2%</span>
+</div>
+</div>
+<!-- 65-69 -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-medium text-[10px]">4.9%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 53%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/70 rounded py-0.5 text-[10px]">65-69</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 55%;"></div>
+</div>
+<span class="text-on-tertiary-container font-medium text-[10px]">5.1%</span>
+</div>
+</div>
+<!-- Boundary Line: 65+ -->
+<div class="flex items-center my-1 py-0.5 px-2 bg-surface-container rounded border-t border-b border-dashed border-outline-variant/60 text-[10px]">
+<span class="material-symbols-outlined text-xs text-error mr-1">arrow_upward</span>
+<span class="text-on-surface-variant font-bold">만 65세 이상 고령층 경계 (고령화율 16.1%)</span>
+</div>
+<!-- 50-64 -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 bg-surface-container/60 rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-bold text-[10px]">24.6%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 95%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-extrabold text-secondary bg-secondary-fixed text-on-secondary-fixed rounded py-0.5 text-[10px]">50-64</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 93%;"></div>
+</div>
+<span class="text-on-tertiary-container font-bold text-[10px]">23.8%</span>
+</div>
+</div>
+<!-- 35-49 -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-medium text-[10px]">22.4%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 88%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/70 rounded py-0.5 text-[10px]">35-49</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 86%;"></div>
+</div>
+<span class="text-on-tertiary-container font-medium text-[10px]">21.9%</span>
+</div>
+</div>
+<!-- 20-34 (Youth) -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 bg-secondary-fixed/30 rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-bold text-[10px]">17.2%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 72%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-secondary bg-surface-container-lowest rounded py-0.5 text-[10px] border border-secondary/30">20-34</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 66%;"></div>
+</div>
+<span class="text-on-tertiary-container font-bold text-[10px]">15.8%</span>
+</div>
+</div>
+<!-- 0-14 (Children) -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 bg-error-container/20 rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-bold text-[10px]">6.7%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 44%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-extrabold text-error bg-error-container rounded py-0.5 text-[10px]">0-14</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 42%;"></div>
+</div>
+<span class="text-on-tertiary-container font-bold text-[10px]">6.4%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- City Specific Characteristics Footer -->
+<div class="mt-4 pt-3 border-t border-outline-variant/60 text-xs text-on-surface-variant flex items-center justify-between">
+<span><strong class="text-secondary">밀집 권역:</strong> 아라동, 노형동, 연동 중심 청년·신혼가구 밀집</span>
+<span class="font-data-tabular font-bold text-on-surface">노령화지수: 122.9%</span>
+</div>
+</div>
+<!-- Right Pyramid: 서귀포시 (총인구 205,568명) -->
+<div class="p-4 rounded-xl bg-surface-container-low/40 border border-outline-variant/60 flex flex-col justify-between">
+<div>
+<!-- Header info for Seogwipo City -->
+<div class="flex items-center justify-between pb-3 mb-3 border-b border-outline-variant/50">
+<div class="flex items-center space-x-2">
+<span class="w-6 h-6 rounded-full bg-on-tertiary-container text-on-tertiary text-xs font-bold flex items-center justify-center">서</span>
+<div>
+<h4 class="font-title-sm text-title-sm font-bold text-on-surface">서귀포시 인구 피라미드</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">총인구 205,568명 (도내 29.4%)</span>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-tertiary-fixed text-on-tertiary-fixed font-semibold">초고령사회 진입</span>
+<div class="font-data-tabular text-[11px] text-on-surface-variant mt-0.5">남 103,560 / 여 102,008</div>
+</div>
+</div>
+<!-- Key Demographic Indicator Badges -->
+<div class="grid grid-cols-3 gap-2 mb-3 text-center text-xs font-data-tabular">
+<div class="bg-surface-container-lowest p-1.5 rounded border border-outline-variant/50">
+<span class="text-outline block text-[10px]">유소년 (0~14세)</span>
+<strong class="text-secondary text-sm">11.4%</strong> <span class="text-on-surface-variant text-[10px]">(23,340명)</span>
+</div>
+<div class="bg-surface-container-lowest p-1.5 rounded border border-outline-variant/50">
+<span class="text-outline block text-[10px]">생산가능 (15~64세)</span>
+<strong class="text-on-surface text-sm">66.0%</strong> <span class="text-on-surface-variant text-[10px]">(135,940명)</span>
+</div>
+<div class="bg-surface-container-lowest p-1.5 rounded border border-outline-variant/50">
+<span class="text-outline block text-[10px]">고령 (65세 이상)</span>
+<strong class="text-error text-sm font-bold">22.6%</strong> <span class="text-on-surface-variant text-[10px]">(46,288명)</span>
+</div>
+</div>
+<!-- Pyramid Axis Titles -->
+<div class="flex items-center justify-between mb-2 text-label-sm font-label-sm px-1">
+<span class="text-secondary font-bold flex items-center gap-1"><span class="material-symbols-outlined text-sm">man</span> 남성 (50.4%)</span>
+<span class="text-outline text-[11px] font-semibold">연령구간</span>
+<span class="text-on-tertiary-container font-bold flex items-center gap-1">여성 (49.6%) <span class="material-symbols-outlined text-sm">woman</span></span>
+</div>
+<!-- 5-Year Age Bars Stack -->
+<div class="space-y-1 font-data-tabular text-[11px]">
+<!-- 80+ -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-medium text-[10px]">3.2%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 38%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/70 rounded py-0.5 text-[10px]">80+</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 68%;"></div>
+</div>
+<span class="text-on-tertiary-container font-medium text-[10px]">6.3%</span>
+</div>
+</div>
+<!-- 70-79 -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-medium text-[10px]">6.9%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 74%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/70 rounded py-0.5 text-[10px]">70-79</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 78%;"></div>
+</div>
+<span class="text-on-tertiary-container font-medium text-[10px]">7.2%</span>
+</div>
+</div>
+<!-- 65-69 -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-medium text-[10px]">5.8%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 64%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/70 rounded py-0.5 text-[10px]">65-69</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 65%;"></div>
+</div>
+<span class="text-on-tertiary-container font-medium text-[10px]">5.9%</span>
+</div>
+</div>
+<!-- Boundary Line: 65+ -->
+<div class="flex items-center my-1 py-0.5 px-2 bg-error-container/30 rounded border-t border-b border-dashed border-error/50 text-[10px]">
+<span class="material-symbols-outlined text-xs text-error mr-1">warning</span>
+<span class="text-error font-bold">만 65세 이상 고령층 경계 (고령화율 22.6% - 초고령사회)</span>
+</div>
+<!-- 50-64 -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 bg-surface-container/60 rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-bold text-[10px]">25.8%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 98%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-extrabold text-on-surface bg-surface-container-highest rounded py-0.5 text-[10px]">50-64</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 92%;"></div>
+</div>
+<span class="text-on-tertiary-container font-bold text-[10px]">23.9%</span>
+</div>
+</div>
+<!-- 35-49 -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-medium text-[10px]">20.2%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 79%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/70 rounded py-0.5 text-[10px]">35-49</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 76%;"></div>
+</div>
+<span class="text-on-tertiary-container font-medium text-[10px]">19.5%</span>
+</div>
+</div>
+<!-- 20-34 (Youth) -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-medium text-[10px]">14.1%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 56%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/70 rounded py-0.5 text-[10px]">20-34</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 51%;"></div>
+</div>
+<span class="text-on-tertiary-container font-medium text-[10px]">13.0%</span>
+</div>
+</div>
+<!-- 0-14 (Children) -->
+<div class="grid grid-cols-12 items-center gap-1.5 group py-0.5 bg-error-container/20 rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-bold text-[10px]">5.9%</span>
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 39%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-extrabold text-error bg-error-container rounded py-0.5 text-[10px]">0-14</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-3 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 37%;"></div>
+</div>
+<span class="text-on-tertiary-container font-bold text-[10px]">5.5%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- City Specific Characteristics Footer -->
+<div class="mt-4 pt-3 border-t border-outline-variant/60 text-xs text-on-surface-variant flex items-center justify-between">
+<span><strong class="text-on-tertiary-container">특례 구조:</strong> 대정읍 영어교육도시 유소년 유입 특례 vs 농어촌 읍면 노령화</span>
+<span class="font-data-tabular font-bold text-error">노령화지수: 198.2%</span>
+</div>
+</div>
+</div>
+<!-- Bottom Comparative Analytics: Metric Comparison Table & Policy Implications -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start pt-2 border-t border-outline-variant/40">
+<!-- Comparative Matrix Table (7 Cols) -->
+<div class="lg:col-span-7 bg-surface rounded-xl border border-outline-variant/60 overflow-hidden shadow-xs">
+<div class="px-4 py-3 bg-surface-container-low border-b border-outline-variant/60 flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary">compare_arrows</span>
+          제주시 VS 서귀포시 핵심 인구구조 지표 비교
+        </span>
+<span class="text-[11px] font-label-sm text-outline font-medium">2024년 10월 확정 기준</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse text-xs font-data-tabular">
+<thead>
+<tr class="bg-surface-container-lowest border-b border-outline-variant/60 text-outline text-[11px]">
+<th class="py-2 px-3 font-semibold">구분 지표</th>
+<th class="py-2 px-3 text-right font-semibold text-secondary">제주시</th>
+<th class="py-2 px-3 text-right font-semibold text-on-tertiary-container">서귀포시</th>
+<th class="py-2 px-3 text-center font-semibold">비교 격차 / 구조적 특성</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30 text-on-surface">
+<tr class="hover:bg-surface-container-low/50">
+<td class="py-2 px-3 font-medium text-on-surface-variant">총 인구수</td>
+<td class="py-2 px-3 text-right font-bold">492,853명</td>
+<td class="py-2 px-3 text-right font-bold">205,568명</td>
+<td class="py-2 px-3 text-center text-[11px] text-on-surface-variant">도내 인구 비중 70.6% vs 29.4%</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50">
+<td class="py-2 px-3 font-medium text-on-surface-variant">평균 연령</td>
+<td class="py-2 px-3 text-right font-semibold text-secondary">43.8세</td>
+<td class="py-2 px-3 text-right font-semibold text-error">47.2세</td>
+<td class="py-2 px-3 text-center text-[11px] font-semibold text-error">서귀포시가 +3.4세 고령</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50">
+<td class="py-2 px-3 font-medium text-on-surface-variant">합계출산율 (잠정)</td>
+<td class="py-2 px-3 text-right font-semibold">0.81명</td>
+<td class="py-2 px-3 text-right font-bold text-on-tertiary-container">0.88명</td>
+<td class="py-2 px-3 text-center text-[11px] text-secondary font-semibold">서귀포시 +0.07명 우위 (대정읍 등 효과)</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50">
+<td class="py-2 px-3 font-medium text-on-surface-variant">고령인구 비율 (65세+)</td>
+<td class="py-2 px-3 text-right font-semibold">16.1% <span class="text-[10px] text-outline">(고령사회)</span></td>
+<td class="py-2 px-3 text-right font-bold text-error">22.6% <span class="text-[10px] text-error">(초고령사회)</span></td>
+<td class="py-2 px-3 text-center text-[11px] text-error font-semibold">서귀포시 초고령사회(20% 초과) 진입</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50">
+<td class="py-2 px-3 font-medium text-on-surface-variant">유소년 비율 (0~14세)</td>
+<td class="py-2 px-3 text-right font-semibold text-secondary">13.1%</td>
+<td class="py-2 px-3 text-right font-semibold">11.4%</td>
+<td class="py-2 px-3 text-center text-[11px] text-on-surface-variant">제주시가 +1.7%p 상회</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50">
+<td class="py-2 px-3 font-medium text-on-surface-variant">노령화지수</td>
+<td class="py-2 px-3 text-right font-bold text-secondary">122.9%</td>
+<td class="py-2 px-3 text-right font-bold text-error">198.2%</td>
+<td class="py-2 px-3 text-center text-[11px] text-error font-semibold">서귀포시 노령화지수 75.3%p 심화</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- City-Tailored Policy Implications (5 Cols) -->
+<div class="lg:col-span-5 space-y-3.5">
+<!-- Jeju City Policy Card -->
+<div class="p-3.5 rounded-lg bg-secondary-fixed/40 border border-secondary/20 flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-secondary text-base mt-0.5">apartment</span>
+<div class="font-body-sm text-body-sm text-on-secondary-fixed text-xs leading-relaxed">
+<strong class="font-semibold text-secondary block mb-0.5">제주시 정책 시사점 (청년 정주 및 보육):</strong>
+          20~30대 청년 인구 비율이 높은 항아리 구조를 유지 중이나, 유소년층의 지속적인 감소세 방어를 위해 신혼부부 주거비 지원, 국공립 돌봄센터 확충 및 도심형 양육 인프라 집중 투자가 시급함.
+        </div>
+</div>
+<!-- Seogwipo City Policy Card -->
+<div class="p-3.5 rounded-lg bg-tertiary-fixed/40 border border-on-tertiary-container/20 flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-on-tertiary-container text-base mt-0.5">health_and_safety</span>
+<div class="font-body-sm text-body-sm text-on-tertiary-fixed text-xs leading-relaxed">
+<strong class="font-semibold text-on-tertiary-container block mb-0.5">서귀포시 정책 시사점 (초고령 대응 &amp; 교육특구 연계):</strong>
+          고령비율 22.6%로 초고령화가 심화된 읍면부에는 거점 공공의료·재택돌봄 네트워크를 강화하는 한편, 대정 영어교육도시 등의 성공적인 유소년·학부모 전입 특례를 혁신도시 및 농어촌 전입 패키지와 연계 확산해야 함.
+        </div>
+</div>
+</div>
+</div>
+</section><section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-5 shadow-sm space-y-6">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between pb-4 border-b border-outline-variant/50 gap-3">
+<div>
+<div class="flex items-center space-x-2">
+<h3 class="font-title-sm text-title-sm font-bold text-on-surface">10개년 인구 피라미드 구조 변천 (2014년 vs 2024년 시계열 비교)</h3>
+<span class="bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded font-bold">10년 시계열 분석</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">제주 이주 붐(2014~2018)과 초저출생 심화가 가져온 지난 10년간 인구 피라미드 형태 변화(종형/피라미드형 ➔ 역삼각 항아리형)</p>
+</div>
+<div class="flex flex-wrap items-center gap-2.5">
+<div class="flex border border-outline-variant rounded p-0.5 bg-surface-container-low text-label-sm font-label-sm">
+<button class="px-2.5 py-1 bg-surface-container-lowest font-semibold rounded shadow-xs text-secondary border border-outline-variant/50 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">compare</span> 나란히 비교(Side-by-Side)
+        </button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">layers</span> 중첩 오버레이(Overlay)
+        </button>
+</div>
+<div class="flex items-center space-x-3 text-label-sm font-label-sm px-2">
+<span class="flex items-center space-x-1.5">
+<span class="w-3 h-2 rounded-xs bg-outline-variant inline-block"></span>
+<span class="text-on-surface-variant font-medium">2014년 (10년 전)</span>
+</span>
+<span class="flex items-center space-x-1.5">
+<span class="w-3 h-2 rounded-xs bg-secondary inline-block"></span>
+<span class="text-on-surface font-bold">2024년 (현재)</span>
+</span>
+</div>
+</div>
+</div>
+<!-- 5 Core 10-Year Metric Cards -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/60">
+<span class="text-[11px] text-outline block font-medium">총인구 규모</span>
+<div class="flex items-baseline gap-1.5 mt-0.5">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">69.8만</span>
+<span class="text-xs text-secondary font-bold font-data-tabular">+15.0%</span>
+</div>
+<div class="text-[11px] text-on-surface-variant mt-1 font-data-tabular">
+        607,346명 ➔ 698,421명 <span class="text-secondary font-semibold">(+91,075명)</span>
+</div>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/60">
+<span class="text-[11px] text-outline block font-medium">유소년 인구비율 (0~14세)</span>
+<div class="flex items-baseline gap-1.5 mt-0.5">
+<span class="font-headline-md text-headline-md font-bold text-error">12.6%</span>
+<span class="text-xs text-error font-bold font-data-tabular">-3.8%p</span>
+</div>
+<div class="text-[11px] text-on-surface-variant mt-1 font-data-tabular">
+        16.4% (99,604명) ➔ 12.6% (87,900명)
+      </div>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/60">
+<span class="text-[11px] text-outline block font-medium">고령인구 비율 (65세 이상)</span>
+<div class="flex items-baseline gap-1.5 mt-0.5">
+<span class="font-headline-md text-headline-md font-bold text-on-tertiary-container">18.0%</span>
+<span class="text-xs text-error font-bold font-data-tabular">+4.2%p</span>
+</div>
+<div class="text-[11px] text-on-surface-variant mt-1 font-data-tabular">
+        13.8% (83,813명) ➔ 18.0% (125,651명)
+      </div>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/60">
+<span class="text-[11px] text-outline block font-medium">노령화지수 (유소년 100명당)</span>
+<div class="flex items-baseline gap-1.5 mt-0.5">
+<span class="font-headline-md text-headline-md font-bold text-error">142.9%</span>
+<span class="text-xs text-error font-bold font-data-tabular">+58.8%p</span>
+</div>
+<div class="text-[11px] text-on-surface-variant mt-1 font-data-tabular">
+        84.1%(유소년 우위) ➔ 142.9%(역전 심화)
+      </div>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/60 col-span-2 md:col-span-1">
+<span class="text-[11px] text-outline block font-medium">평균 연령</span>
+<div class="flex items-baseline gap-1.5 mt-0.5">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">44.7세</span>
+<span class="text-xs text-error font-bold font-data-tabular">+4.9세</span>
+</div>
+<div class="text-[11px] text-on-surface-variant mt-1 font-data-tabular">
+        2014년 39.8세 ➔ 2024년 44.7세 고령화
+      </div>
+</div>
+</div>
+<!-- Side-by-Side Pyramid Visualizer -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
+<!-- 2014 Year Pyramid -->
+<div class="p-4 rounded-xl bg-surface-container-low/30 border border-outline-variant/60 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-2 mb-3 border-b border-outline-variant/50">
+<div class="flex items-center space-x-2">
+<span class="px-2 py-0.5 rounded font-label-sm font-bold bg-surface-container text-on-surface-variant">2014년 10월</span>
+<span class="font-title-sm text-title-sm font-bold text-on-surface">10년 전 인구 피라미드</span>
+</div>
+<span class="text-xs font-semibold text-secondary bg-secondary-fixed/50 px-2 py-0.5 rounded">종형 구조 (두터운 3040 청장년)</span>
+</div>
+<div class="flex items-center justify-between mb-2 text-label-sm font-label-sm px-1">
+<span class="text-outline font-semibold">남성 (50.2%)</span>
+<span class="text-outline text-[11px]">연령 구간</span>
+<span class="text-outline font-semibold">여성 (49.8%)</span>
+</div>
+<div class="space-y-1 font-data-tabular text-[11px]">
+<!-- 80+ -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-outline text-[10px]">1.1%</span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-outline h-full rounded-sm" style="width: 14%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center text-outline bg-surface-container-high/60 rounded py-0.5 text-[10px]">80+</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-outline h-full rounded-sm" style="width: 32%;"></div>
+</div>
+<span class="text-outline text-[10px]">2.5%</span>
+</div>
+</div>
+<!-- 70-79 -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-outline text-[10px]">3.1%</span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-outline h-full rounded-sm" style="width: 38%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center text-outline bg-surface-container-high/60 rounded py-0.5 text-[10px]">70-79</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-outline h-full rounded-sm" style="width: 48%;"></div>
+</div>
+<span class="text-outline text-[10px]">4.1%</span>
+</div>
+</div>
+<!-- 65-69 -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-outline text-[10px]">3.4%</span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-outline h-full rounded-sm" style="width: 42%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center text-outline bg-surface-container-high/60 rounded py-0.5 text-[10px]">65-69</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-outline h-full rounded-sm" style="width: 44%;"></div>
+</div>
+<span class="text-outline text-[10px]">3.6%</span>
+</div>
+</div>
+<!-- 50-64 -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-on-surface-variant font-medium text-[10px]">19.2%</span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary/70 h-full rounded-sm" style="width: 72%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[10px]">50-64</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container/70 h-full rounded-sm" style="width: 70%;"></div>
+</div>
+<span class="text-on-surface-variant font-medium text-[10px]">18.6%</span>
+</div>
+</div>
+<!-- 35-49 (2014 Peak) -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5 bg-secondary-fixed/40 rounded px-1">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-bold text-[10px]">26.8%</span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 98%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-extrabold text-secondary bg-surface-container-lowest rounded py-0.5 text-[10px] border border-secondary/30">35-49 ★</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 94%;"></div>
+</div>
+<span class="text-on-tertiary-container font-bold text-[10px]">25.4%</span>
+</div>
+</div>
+<!-- 20-34 -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-on-surface-variant text-[10px]">17.8%</span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary/60 h-full rounded-sm" style="width: 68%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center text-on-surface bg-surface-container-high/60 rounded py-0.5 text-[10px]">20-34</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container/60 h-full rounded-sm" style="width: 62%;"></div>
+</div>
+<span class="text-on-surface-variant text-[10px]">16.2%</span>
+</div>
+</div>
+<!-- 0-14 (2014 Children Peak) -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5 bg-surface-container/60 rounded px-1">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-bold text-[10px]">8.6%</span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary/80 h-full rounded-sm" style="width: 58%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-secondary bg-surface-container-lowest rounded py-0.5 text-[10px]">0-14</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container/80 h-full rounded-sm" style="width: 52%;"></div>
+</div>
+<span class="text-on-tertiary-container font-bold text-[10px]">7.8%</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/60 flex items-center justify-between text-xs text-on-surface-variant">
+<span>3040 청장년층 인구 유입 러시 시기 (유소년층 16.4% 점유)</span>
+<span class="font-data-tabular font-bold text-on-surface">노령화지수: 84.1%</span>
+</div>
+</div>
+<!-- 2024 Year Pyramid -->
+<div class="p-4 rounded-xl bg-surface-container-low/40 border border-secondary/30 flex flex-col justify-between ring-1 ring-secondary/20">
+<div>
+<div class="flex items-center justify-between pb-2 mb-3 border-b border-outline-variant/50">
+<div class="flex items-center space-x-2">
+<span class="px-2 py-0.5 rounded font-label-sm font-bold bg-secondary text-on-secondary">2024년 10월</span>
+<span class="font-title-sm text-title-sm font-bold text-on-surface">현재 인구 피라미드</span>
+</div>
+<span class="text-xs font-semibold text-error bg-error-container/40 px-2 py-0.5 rounded">항아리형 구조 (고령층 급증·유소년 급감)</span>
+</div>
+<div class="flex items-center justify-between mb-2 text-label-sm font-label-sm px-1">
+<span class="text-secondary font-bold">남성 (50.1%)</span>
+<span class="text-outline text-[11px] font-semibold">연령 구간</span>
+<span class="text-on-tertiary-container font-bold">여성 (49.9%)</span>
+</div>
+<div class="space-y-1 font-data-tabular text-[11px]">
+<!-- 80+ -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-semibold text-[10px]">2.5% <span class="text-error">(+1.4)</span></span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 30%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[10px]">80+</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 55%;"></div>
+</div>
+<span class="text-on-tertiary-container font-semibold text-[10px]">5.2% <span class="text-error">(+2.7)</span></span>
+</div>
+</div>
+<!-- 70-79 -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-semibold text-[10px]">5.8% <span class="text-error">(+2.7)</span></span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 63%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[10px]">70-79</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 68%;"></div>
+</div>
+<span class="text-on-tertiary-container font-semibold text-[10px]">6.5% <span class="text-error">(+2.4)</span></span>
+</div>
+</div>
+<!-- 65-69 -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-semibold text-[10px]">5.2% <span class="text-error">(+1.8)</span></span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 58%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[10px]">65-69</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 60%;"></div>
+</div>
+<span class="text-on-tertiary-container font-semibold text-[10px]">5.4% <span class="text-error">(+1.8)</span></span>
+</div>
+</div>
+<!-- 50-64 (2024 New Peak: Babyboomer shift) -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5 bg-secondary-fixed/40 rounded px-1">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-secondary font-bold text-[10px]">25.0% <span class="text-secondary">(+5.8)</span></span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 98%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-extrabold text-secondary bg-surface-container-lowest rounded py-0.5 text-[10px] border border-secondary/30">50-64 ★</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 93%;"></div>
+</div>
+<span class="text-on-tertiary-container font-bold text-[10px]">23.8% <span class="text-secondary">(+5.2)</span></span>
+</div>
+</div>
+<!-- 35-49 -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-on-surface-variant text-[10px]">21.8% <span class="text-outline">(-5.0)</span></span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary/70 h-full rounded-sm" style="width: 85%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center text-on-surface bg-surface-container-high/60 rounded py-0.5 text-[10px]">35-49</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container/70 h-full rounded-sm" style="width: 83%;"></div>
+</div>
+<span class="text-on-surface-variant text-[10px]">21.2% <span class="text-outline">(-4.2)</span></span>
+</div>
+</div>
+<!-- 20-34 -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-on-surface-variant text-[10px]">16.3% <span class="text-outline">(-1.5)</span></span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary/60 h-full rounded-sm" style="width: 66%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center text-on-surface bg-surface-container-high/60 rounded py-0.5 text-[10px]">20-34</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container/60 h-full rounded-sm" style="width: 60%;"></div>
+</div>
+<span class="text-on-surface-variant text-[10px]">15.0% <span class="text-outline">(-1.2)</span></span>
+</div>
+</div>
+<!-- 0-14 (Severe reduction) -->
+<div class="grid grid-cols-12 items-center gap-1.5 py-0.5 bg-error-container/20 rounded px-1">
+<div class="col-span-5 flex items-center justify-end space-x-1.5">
+<span class="text-error font-bold text-[10px]">6.5% <span class="text-error">(-2.1)</span></span>
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-error h-full rounded-sm" style="width: 42%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-extrabold text-error bg-error-container rounded py-0.5 text-[10px]">0-14 ▼</div>
+<div class="col-span-5 flex items-center justify-start space-x-1.5">
+<div class="w-24 bg-surface-container-high h-2.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 40%;"></div>
+</div>
+<span class="text-on-tertiary-container font-bold text-[10px]">6.1% <span class="text-error">(-1.7)</span></span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/60 flex items-center justify-between text-xs text-on-surface-variant">
+<span>50대 중장년 최대 볼륨 이동 및 0~9세 학령기 유소년 급감세</span>
+<span class="font-data-tabular font-bold text-error">노령화지수: 142.9% (+58.8%p)</span>
+</div>
+</div>
+</div>
+<!-- 10-Year Demographic Shift Analytical Insights Box -->
+<div class="p-4 rounded-xl bg-secondary-fixed/40 border border-secondary/30 flex items-start space-x-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5">history_edu</span>
+<div class="space-y-1">
+<h4 class="font-label-md text-label-md font-bold text-secondary flex items-center gap-1.5">
+        10년 인구변천사 정책 핵심 시사점 (2014-2024 종합 평가)
+      </h4>
+<p class="font-body-sm text-body-sm text-on-secondary-fixed text-xs leading-relaxed">
+<strong>1. 베이비붐 세대의 고령화 진입:</strong> 2014년 당시 30대 중반~40대 핵심 근로층이었던 세대가 2024년 50대 중후반으로 이동하면서 도내 최대 인구 볼륨을 형성하였으며, 향후 5~10년 내 대규모 은퇴 및 초고령사회 편입에 따른 복지·의료 부담 급증이 예상됨.<br/>
+<strong>2. 유소년 및 청년층 저출생 절벽 가속화:</strong> 10년간 총인구가 15.0%(+9.1만명) 팽창했음에도 불구하고 0~14세 유소년 비율은 16.4%에서 12.6%로 급락(-3.8%p), 노령화지수는 84.1%에서 142.9%로 유소년 역전이 극심해짐. 읍면동 단위 초등학교 통합 및 거점형 영유아 보육 돌봄망 구축이 급선무임.<br/>
+<strong>3. 정주 인프라 전환:</strong> 2010년대 중반 유입된 3040 세대의 제주 정착 지속성을 높이기 위한 맞춤형 일자리 체질 개선 및 공공주거 공급 확대 정책 연계가 요구됨.
+      </p>
+</div>
+</div>
+</section><section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-5 shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between pb-4 border-b border-outline-variant/50 gap-3">
+<div>
+<div class="flex items-center space-x-2">
+<h3 class="font-title-sm text-title-sm font-bold text-on-surface">제주특별자치도 연령대별 인구 구조 (에이지 피라미드)</h3>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded font-bold">초고령화 진입 대비 분석</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">2024년 10월 주민등록 기준 / 5세 단위 남녀 성별 인구 분포</p>
+</div>
+<div class="flex flex-wrap items-center gap-2.5">
+<div class="flex border border-outline-variant rounded p-0.5 bg-surface-container-low text-label-sm font-label-sm">
+<button class="px-2.5 py-1 bg-surface-container-lowest font-semibold rounded shadow-xs text-secondary">제주도 전체</button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface">제주시</button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface">서귀포시</button>
+</div>
+<div class="flex border border-outline-variant rounded p-0.5 bg-surface-container-low text-label-sm font-label-sm">
+<button class="px-2.5 py-1 bg-surface-container-lowest font-semibold rounded shadow-xs text-on-surface">비율(%)</button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface">인구수(명)</button>
+</div>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<div class="lg:col-span-8 p-4 rounded-xl bg-surface-container-low/40 border border-outline-variant/60">
+<div class="flex items-center justify-between mb-4 pb-2 border-b border-outline-variant/40 text-label-md font-label-md">
+<div class="flex items-center space-x-2 text-secondary font-bold">
+<span class="material-symbols-outlined text-base">man</span>
+<span class="">남성 (총 349,680명 / 50.1%)</span>
+</div>
+<div class="text-outline font-semibold text-xs text-center">연령 구간 (5세 단위)</div>
+<div class="flex items-center space-x-2 text-on-tertiary-container font-bold">
+<span class="">여성 (총 348,741명 / 49.9%)</span>
+<span class="material-symbols-outlined text-base">woman</span>
+</div>
+</div>
+<div class="space-y-1.5 font-data-tabular text-xs">
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">3,840명</span>
+<span class="font-medium text-secondary text-[11px]">1.1%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 12%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">85+</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 31%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">2.8%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">9,780명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">6,280명</span>
+<span class="font-medium text-secondary text-[11px]">1.8%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 20%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">80-84</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 34%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">3.1%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">10,820명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">8,380명</span>
+<span class="font-medium text-secondary text-[11px]">2.4%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 27%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">75-79</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 36%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">3.2%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">11,170명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">12,570명</span>
+<span class="font-medium text-secondary text-[11px]">3.6%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 40%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">70-74</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 43%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">3.9%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">13,620명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">18,160명</span>
+<span class="font-medium text-secondary text-[11px]">5.2%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 58%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">65-69</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 60%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">5.4%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">18,860명</span>
+</div>
+</div>
+<div class="flex items-center my-1.5 py-0.5 px-2 bg-surface-container rounded border-t border-b border-dashed border-outline-variant/60">
+<span class="material-symbols-outlined text-xs text-error mr-1">arrow_upward</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant font-bold">▲ 만 65세 이상 고령인구 경계선 (전체 인구의 18.0% 점유)</span>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">27,240명</span>
+<span class="font-medium text-secondary text-[11px]">7.8%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 87%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">60-64</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 84%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">7.6%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">26,540명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 bg-surface-container/60 rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] font-semibold hidden sm:inline">30,380명</span>
+<span class="font-bold text-secondary text-[11px]">8.7%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 97%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-extrabold text-secondary bg-secondary-fixed text-on-secondary-fixed rounded py-0.5 text-[11px]">55-59</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 93%;"></div>
+</div>
+<span class="font-bold text-on-tertiary-container text-[11px]">8.4%</span>
+<span class="text-on-surface-variant text-[11px] font-semibold hidden sm:inline">29,330명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 bg-surface-container/80 rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] font-semibold hidden sm:inline">31,080명</span>
+<span class="font-bold text-secondary text-[11px]">8.9%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 100%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-extrabold text-secondary bg-secondary-fixed text-on-secondary-fixed rounded py-0.5 text-[11px]">50-54</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 95%;"></div>
+</div>
+<span class="font-bold text-on-tertiary-container text-[11px]">8.5%</span>
+<span class="text-on-surface-variant text-[11px] font-semibold hidden sm:inline">29,680명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">27,590명</span>
+<span class="font-medium text-secondary text-[11px]">7.9%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 88%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">45-49</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 83%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">7.5%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">26,190명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">25,840명</span>
+<span class="font-medium text-secondary text-[11px]">7.4%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 82%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">40-44</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 79%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">7.1%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">24,790명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">21,300명</span>
+<span class="font-medium text-secondary text-[11px]">6.1%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 68%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">35-39</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 66%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">5.9%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">20,600명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">20,250명</span>
+<span class="font-medium text-secondary text-[11px]">5.8%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 64%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">30-34</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 59%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">5.3%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">18,510명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">19,550명</span>
+<span class="font-medium text-secondary text-[11px]">5.6%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 62%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">25-29</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 56%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">5.0%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">17,460명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">18,860명</span>
+<span class="font-medium text-secondary text-[11px]">5.4%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 60%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">20-24</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 52%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">4.7%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">16,410명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">16,760명</span>
+<span class="font-medium text-secondary text-[11px]">4.8%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 53%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">15-19</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 49%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">4.4%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">15,360명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">15,710명</span>
+<span class="font-medium text-secondary text-[11px]">4.5%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 50%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">10-14</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 47%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">4.2%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">14,660명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 hover:bg-surface-container rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">14,320명</span>
+<span class="font-medium text-secondary text-[11px]">4.1%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 46%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-bold text-on-surface bg-surface-container-high/80 rounded py-0.5 text-[11px]">5-9</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 44%;"></div>
+</div>
+<span class="font-medium text-on-tertiary-container text-[11px]">3.9%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">13,620명</span>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-2 group py-0.5 bg-error-container/20 rounded px-1 transition-colors">
+<div class="col-span-5 flex items-center justify-end space-x-2">
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">10,120명</span>
+<span class="font-bold text-secondary text-[11px]">2.9%</span>
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-end overflow-hidden">
+<div class="bg-secondary h-full rounded-sm" style="width: 33%;"></div>
+</div>
+</div>
+<div class="col-span-2 text-center font-extrabold text-error bg-error-container rounded py-0.5 text-[11px]">0-4</div>
+<div class="col-span-5 flex items-center justify-start space-x-2">
+<div class="w-32 bg-surface-container-high h-3.5 rounded-sm flex justify-start overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-sm" style="width: 30%;"></div>
+</div>
+<span class="font-bold text-on-tertiary-container text-[11px]">2.7%</span>
+<span class="text-on-surface-variant text-[11px] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">9,430명</span>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 space-y-4">
+<div class="p-4 rounded-xl bg-surface border border-outline-variant/60 shadow-xs">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-outline font-semibold uppercase">유소년 인구 (0~14세)</span>
+<span class="material-symbols-outlined text-secondary text-base">child_care</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">
+          87,900<span class="text-body-sm font-normal text-on-surface-variant ml-1">명</span>
+<span class="text-body-md text-secondary font-semibold ml-2">12.6%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 flex items-center text-xs">
+<span class="material-symbols-outlined text-sm text-secondary mr-1">trending_up</span>
+          전국 평균(11.2%) 대비 <strong class="text-secondary ml-1">+1.4%p 상회</strong>
+</p>
+</div>
+<div class="p-4 rounded-xl bg-surface border border-outline-variant/60 shadow-xs">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-outline font-semibold uppercase">생산가능 인구 (15~64세)</span>
+<span class="material-symbols-outlined text-secondary text-base">work</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">
+          484,870<span class="text-body-sm font-normal text-on-surface-variant ml-1">명</span>
+<span class="text-body-md text-secondary font-semibold ml-2">69.4%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 text-xs">
+          핵심 경제활동층 / 50대 베이비붐 세대 최대 볼륨 형성
+        </p>
+</div>
+<div class="p-4 rounded-xl bg-surface border border-outline-variant/60 shadow-xs">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-outline font-semibold uppercase">고령 인구 (65세 이상)</span>
+<span class="material-symbols-outlined text-on-tertiary-container text-base">elderly</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">
+          125,651<span class="text-body-sm font-normal text-on-surface-variant ml-1">명</span>
+<span class="text-body-md text-on-tertiary-container font-semibold ml-2">18.0%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 flex items-center text-xs">
+<span class="material-symbols-outlined text-sm text-on-tertiary-container mr-1">info</span>
+          고령사회 지속 (초고령 20% 진입 목전)
+        </p>
+</div>
+<div class="p-3 bg-surface-container rounded-lg border border-outline-variant/60 flex items-center justify-between text-body-sm">
+<div>
+<span class="text-on-surface-variant text-xs">노령화지수:</span>
+<strong class="text-on-surface font-bold ml-1 font-data-tabular">142.9%</strong>
+</div>
+<div class="h-3 w-px bg-outline-variant"></div>
+<div>
+<span class="text-on-surface-variant text-xs">총부양비:</span>
+<strong class="text-on-surface font-bold ml-1 font-data-tabular">44.0%</strong>
+</div>
+</div>
+<div class="p-3.5 rounded-lg bg-secondary-fixed/50 border border-secondary/20 flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-secondary text-base mt-0.5">lightbulb</span>
+<div class="font-body-sm text-body-sm text-on-secondary-fixed text-xs leading-relaxed">
+<strong class="font-semibold text-secondary">정책 시사점:</strong> 40~50대 중심의 항아리형(Bell/Urn) 구조를 보이며, 0~9세 유소년층 감소세에 따른 청년 가구 유입 및 돌봄 인프라 확충 정책이 요구됨.
+        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. 하단 세부 통계 현황 테이블: 행정구역별 리스트 및 필터/페이지네이션 -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="p-5 border-b border-outline-variant flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<h3 class="font-title-sm text-title-sm font-bold text-on-surface">행정구역(읍·면·동)별 상세 인구·출생 레지스트리</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">2024년 10월말 행정안전부 주민등록 인구통계 표준 집계표</p>
+</div>
+<div class="flex items-center space-x-2">
+<div class="relative">
+<input class="pl-8 pr-3 py-1.5 text-body-sm font-body-sm rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface placeholder:text-outline focus:ring-1 focus:ring-secondary focus:border-secondary" placeholder="읍면동 명칭 검색..." type="text"/>
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-sm text-outline" data-icon="search">search</span>
+</div>
+<button class="flex items-center space-x-1 px-3 py-1.5 bg-surface-container hover:bg-surface-container-high rounded text-on-surface font-label-md text-label-md transition-colors border border-outline-variant">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+<span class="">필터 설정</span>
+</button>
+<button class="flex items-center space-x-1 px-3 py-1.5 bg-surface-container hover:bg-surface-container-high rounded text-on-surface font-label-md text-label-md transition-colors border border-outline-variant">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+<span class="">CSV 저장</span>
+</button>
+</div>
+</div>
+<!-- Tabular Grid View -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant text-outline font-label-md text-label-md uppercase">
+<th class="py-3 px-4 font-semibold">행정구역</th>
+<th class="py-3 px-4 font-semibold">구분</th>
+<th class="py-3 px-4 text-right font-semibold">총 인구수 (명)</th>
+<th class="py-3 px-4 text-right font-semibold">남성 / 여성</th>
+<th class="py-3 px-4 text-right font-semibold">성비 (남/여)</th>
+<th class="py-3 px-4 text-right font-semibold">전월대비 증감</th>
+<th class="py-3 px-4 text-right font-semibold">당월 출생아수</th>
+<th class="py-3 px-4 text-right font-semibold">합계출산율</th>
+<th class="py-3 px-4 text-center font-semibold">지표 상태</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/40 font-data-tabular text-data-tabular">
+<!-- Row 1: 아라동 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-3 px-4 font-semibold text-on-surface">제주시 아라동</td>
+<td class="py-3 px-4 text-on-surface-variant font-label-sm text-label-sm">동지역</td>
+<td class="py-3 px-4 text-right font-bold text-on-surface">39,210</td>
+<td class="py-3 px-4 text-right text-on-surface-variant">19,305 / 19,905</td>
+<td class="py-3 px-4 text-right text-on-surface-variant">97.0</td>
+<td class="py-3 px-4 text-right text-secondary font-bold">+52</td>
+<td class="py-3 px-4 text-right font-bold text-on-surface">38</td>
+<td class="py-3 px-4 text-right font-bold text-secondary">0.98</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary-fixed text-on-secondary-fixed font-semibold">성장 가속</span>
+</td>
+</tr>
+<!-- Row 2: 대정읍 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-3 px-4 font-semibold text-on-surface">서귀포시 대정읍</td>
+<td class="py-3 px-4 text-on-surface-variant font-label-sm text-label-sm">읍부</td>
+<td class="py-3 px-4 text-right font-bold text-on-surface">24,180</td>
+<td class="py-3 px-4 text-right text-on-surface-variant">12,140 / 12,040</td>
+<td class="py-3 px-4 text-right text-on-surface-variant">100.8</td>
+<td class="py-3 px-4 text-right text-secondary font-bold">+68</td>
+<td class="py-3 px-4 text-right font-bold text-on-surface">24</td>
+<td class="py-3 px-4 text-right font-bold text-on-tertiary-container">1.05</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-tertiary-fixed text-on-tertiary-fixed font-semibold">도내 최고</span>
+</td>
+</tr>
+<!-- Row 3: 노형동 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-3 px-4 font-semibold text-on-surface">제주시 노형동</td>
+<td class="py-3 px-4 text-on-surface-variant font-label-sm text-label-sm">동지역</td>
+<td class="py-3 px-4 text-right font-bold text-on-surface">57,412</td>
+<td class="py-3 px-4 text-right text-on-surface-variant">27,820 / 29,592</td>
+<td class="py-3 px-4 text-right text-on-surface-variant">94.0</td>
+<td class="py-3 px-4 text-right text-error font-medium">-18</td>
+<td class="py-3 px-4 text-right font-bold text-on-surface">32</td>
+<td class="py-3 px-4 text-right text-on-surface font-medium">0.78</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container text-on-surface-variant font-medium">인구 최대</span>
+</td>
+</tr>
+<!-- Row 4: 애월읍 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-3 px-4 font-semibold text-on-surface">제주시 애월읍</td>
+<td class="py-3 px-4 text-on-surface-variant font-label-sm text-label-sm">읍부</td>
+<td class="py-3 px-4 text-right font-bold text-on-surface">37,840</td>
+<td class="py-3 px-4 text-right text-on-surface-variant">19,410 / 18,430</td>
+<td class="py-3 px-4 text-right text-on-surface-variant">105.3</td>
+<td class="py-3 px-4 text-right text-secondary font-bold">+29</td>
+<td class="py-3 px-4 text-right font-bold text-on-surface">21</td>
+<td class="py-3 px-4 text-right text-secondary font-bold">0.89</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary-fixed text-on-secondary-fixed font-semibold">순유입 우수</span>
+</td>
+</tr>
+<!-- Row 5: 삼양동 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-3 px-4 font-semibold text-on-surface">제주시 삼양동</td>
+<td class="py-3 px-4 text-on-surface-variant font-label-sm text-label-sm">동지역</td>
+<td class="py-3 px-4 text-right font-bold text-on-surface">26,450</td>
+<td class="py-3 px-4 text-right text-on-surface-variant">13,110 / 13,340</td>
+<td class="py-3 px-4 text-right text-on-surface-variant">98.3</td>
+<td class="py-3 px-4 text-right text-secondary font-bold">+14</td>
+<td class="py-3 px-4 text-right font-bold text-on-surface">26</td>
+<td class="py-3 px-4 text-right text-secondary font-bold">0.92</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary-fixed text-on-secondary-fixed font-semibold">안정적 유지</span>
+</td>
+</tr>
+<!-- Row 6: 동홍동 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-3 px-4 font-semibold text-on-surface">서귀포시 동홍동</td>
+<td class="py-3 px-4 text-on-surface-variant font-label-sm text-label-sm">동지역</td>
+<td class="py-3 px-4 text-right font-bold text-on-surface">23,890</td>
+<td class="py-3 px-4 text-right text-on-surface-variant">11,702 / 12,188</td>
+<td class="py-3 px-4 text-right text-on-surface-variant">96.0</td>
+<td class="py-3 px-4 text-right text-secondary font-bold">+06</td>
+<td class="py-3 px-4 text-right font-bold text-on-surface">18</td>
+<td class="py-3 px-4 text-right text-on-surface font-medium">0.82</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container text-on-surface-variant font-medium">균형 정주</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination Footer -->
+<div class="px-5 py-3 border-t border-outline-variant flex items-center justify-between bg-surface-container-low/50">
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+            전체 43개 행정구역(읍·면·동) 중 <strong class="text-on-surface">1-6</strong>건 표시
+          </div>
+<div class="flex items-center space-x-1">
+<button class="p-1.5 rounded border border-outline-variant bg-surface-container-lowest text-outline hover:text-on-surface disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary-container text-on-primary font-label-md text-label-md font-semibold">1</button>
+<button class="w-8 h-8 rounded bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container">2</button>
+<button class="w-8 h-8 rounded bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container">3</button>
+<button class="w-8 h-8 rounded bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container">4</button>
+<button class="p-1.5 rounded border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Administrative Institutional Footnote -->
+<footer class="pt-4 pb-8 border-t border-outline-variant/60 flex flex-col md:flex-row items-center justify-between text-on-surface-variant font-body-sm text-body-sm gap-2">
+<div class="flex items-center space-x-4">
+<span class="">제주특별자치도 제주시 문연로 6 (연동) 정책기획관실</span>
+<span class="">|</span>
+<span class="">통계작성승인: 제210001호 (통계청)</span>
+<span class="">|</span>
+<span class="">공공누리 제1유형 출처표시</span>
+</div>
+<div class="font-label-sm text-label-sm text-outline">
+          © 2024 Jeju Special Self-Governing Province. All Rights Reserved.
+        </div>
+</footer>
+</main>
+</div>
+</body></html>
